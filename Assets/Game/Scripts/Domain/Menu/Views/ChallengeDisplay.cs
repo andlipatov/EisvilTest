@@ -40,7 +40,7 @@ namespace EisvilTest
             _challenge.TextSet += OnTextSet;
             _challenge.TargetSet += OnTargetSet;
             _challenge.ValueСhanged += OnValueСhanged;
-            _challenge.IsCompletedСhanged += OnIsCompletedСhanged;
+            _challenge.Completed += OnCompleted;
 
             _challenge.OnInitialize();
         }
@@ -50,7 +50,7 @@ namespace EisvilTest
             _challenge.TextSet -= OnTextSet;
             _challenge.TargetSet -= OnTargetSet;
             _challenge.ValueСhanged -= OnValueСhanged;
-            _challenge.IsCompletedСhanged -= OnIsCompletedСhanged;
+            _challenge.Completed -= OnCompleted;
         }
 
         private void OnTextSet(string text)
@@ -69,7 +69,7 @@ namespace EisvilTest
             _rectMask.padding = new Vector4(0.0f, 0.0f, _width * (1.0f - (float)_value / _target), 0.0f);
         }
 
-        private void OnIsCompletedСhanged(bool isCompleted)
+        private void OnCompleted(bool isCompleted)
         {
             _isCompleted = isCompleted;
 

@@ -13,7 +13,7 @@ namespace EisvilTest
         public event Action<int> TargetSet;
         public event Action<string> TextSet;
         public event Action<int> ValueСhanged;
-        public event Action<bool> IsCompletedСhanged;
+        public event Action<bool> Completed;
 
         public Challenge(string text, int target)
         {
@@ -29,7 +29,7 @@ namespace EisvilTest
             TextSet?.Invoke(_text);
             TargetSet?.Invoke(_target);
             ValueСhanged?.Invoke(_value);
-            IsCompletedСhanged?.Invoke(_isCompleted);
+            Completed?.Invoke(_isCompleted);
         }
 
         public void SetValue(int value)
@@ -41,7 +41,7 @@ namespace EisvilTest
                 if (_value >= _target)
                 {
                     _isCompleted = true;
-                    IsCompletedСhanged?.Invoke(_isCompleted);
+                    Completed?.Invoke(_isCompleted);
                 }
 
                 ValueСhanged?.Invoke(_value);
